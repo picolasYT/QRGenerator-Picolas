@@ -1,0 +1,122 @@
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #1e1f29, #30336b);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.main-container {
+  display: flex;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  overflow: hidden;
+  width: 850px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.left-panel, .right-panel {
+  padding: 40px;
+  flex: 1;
+}
+
+.left-panel {
+  background: rgba(255, 255, 255, 0.05);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.left-panel h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.label {
+  display: block;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+#url-input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 5px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  font-size: 16px;
+}
+
+#generate-btn {
+  margin-top: 15px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  background: #00c853;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#generate-btn:hover {
+  background: #009624;
+}
+
+.hint {
+  font-size: 12px;
+  opacity: 0.8;
+  margin-top: 10px;
+}
+
+.right-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.qr-box {
+  width: 250px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+#qr-canvas {
+  display: none;
+}
+
+#qr-placeholder {
+  color: #888;
+  position: absolute;
+  text-align: center;
+}
+
+#download-btn {
+  display: none;
+  margin-top: 20px;
+  background: #1976d2;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+#download-btn:hover {
+  background: #0d47a1;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generador QR Moderno</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="main-container">
+    <!-- Panel Izquierdo -->
+    <div class="left-panel">
+      <h1>🌐 Generador de Códigos QR</h1>
+      <p>Ingresa una <b>URL</b> para generar tu código QR automáticamente.</p>
+
+      <label for="url-input" class="label">URL:</label>
+      <input type="text" id="url-input" placeholder="https://ejemplo.com">
+
+      <button id="generate-btn">Generar QR</button>
+
+      <p class="hint">Tu código QR se generará al instante</p>
+    </div>
+
+    <!-- Panel Derecho -->
+    <div class="right-panel">
+      <div class="qr-box">
+        <canvas id="qr-canvas"></canvas>
+        <p id="qr-placeholder">Tu QR aparecerá aquí</p>
+      </div>
+
+      <a id="download-btn" href="#" download="codigo_qr.png">⬇️ Descargar</a>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
