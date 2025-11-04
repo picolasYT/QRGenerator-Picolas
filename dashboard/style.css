@@ -1,0 +1,107 @@
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #1e1f29, #30336b);
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-container {
+  display: flex;
+  width: 850px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+.left-panel {
+  flex: 1;
+  padding: 40px;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.left-panel label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.left-panel input, select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  margin-top: 5px;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #00c853;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #009624;
+}
+
+.right-panel {
+  flex: 1;
+  padding: 40px;
+  text-align: center;
+}
+
+.qr-container {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#qr-canvas {
+  background: white;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.frame-text {
+  background: black;
+  color: white;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 6px;
+  margin: 8px 0;
+  display: none;
+}
+
+#download-btn {
+  margin-top: 15px;
+  display: none;
+  background: #1976d2;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+}
+
+/* GitHub Corner */
+.github-corner:hover .octo-arm {
+  animation: octocat-wave 560ms ease-in-out;
+}
+@keyframes octocat-wave {
+  0%,100% { transform: rotate(0); }
+  20%,60% { transform: rotate(-25deg); }
+  40%,80% { transform: rotate(10deg); }
+}
