@@ -21,6 +21,8 @@
 
 ![Vista previa](https://qr-generator-picolas.vercel.app/)
 
+Si no te deja ingesa desde aqui: https://qr-generator-picolas.vercel.app/
+
 ---
 
 ## 🚀 Cómo usarlo
