@@ -5,34 +5,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Picolas QR Generator</title>
   <link rel="stylesheet" href="style.css" />
+
+  <!-- 🔍 META TAGS PARA SEO -->
+  <meta name="title" content="Picolas QR Generator — Crea y personaliza tus códigos QR gratis">
+  <meta name="description" content="Generador QR moderno, rápido y gratuito creado por Picolas. Personaliza tu QR con texto, color y descárgalo en segundos.">
+  <meta name="author" content="Picolas">
+  <meta property="og:image" content="https://qr-generator-picolas.vercel.app/assets/banner.png">
+  <meta property="og:title" content="Picolas QR Generator — Crea tus códigos QR">
+  <meta property="og:description" content="Generador QR moderno, rápido y gratuito con personalización.">
+  <meta property="og:url" content="https://qr-generator-picolas.vercel.app/">
+  <meta name="theme-color" content="#00c853">
 </head>
+
 <body>
 
-  <!-- Encabezado -->
+  <!-- 🌐 ENCABEZADO -->
   <header class="navbar">
     <div class="logo">
       <img src="assets/logo.png" alt="Picolas QR" />
     </div>
     <div class="nav-buttons">
+      <a href="about/index.html" class="btn dark">ℹ️ Sobre</a>
+      <a href="pricing/index.html" class="btn dark">💰 Planes</a>
       <a href="dashboard/index.html" class="btn black">⚙️ Dashboard</a>
-      <a href="https://github.com/picolasYT/QRGenerator-Picolas" class="btn dark" target="_blank">⭐ Creador</a>
+      <a href="https://github.com/picolasYT/QRGenerator-Picolas" class="btn dark" target="_blank">⭐ Repositorio</a>
     </div>
   </header>
 
-  <!-- Hero principal -->
+  <!-- 💡 SECCIÓN PRINCIPAL (HERO) -->
   <section class="hero">
     <h2>El Generador de Códigos QR Más Moderno y Personalizable</h2>
     <p>
-      Crea, descarga y personaliza tus códigos QR de forma gratuita.  
+      Crea, descarga y personaliza tus códigos QR gratis.  
       Diseñado por <b>Picolas</b> con un enfoque en velocidad, diseño y simplicidad.
     </p>
     <div class="hero-buttons">
       <a href="dashboard/index.html" class="btn black">⚙️ Entrar al Generador</a>
-      <a href="#planes" class="btn white">💰 Ver Planes</a>
+      <a href="pricing/index.html" class="btn white">💰 Ver Planes</a>
     </div>
   </section>
 
-  <!-- Planes -->
+  <!-- 💸 SECCIÓN DE PLANES -->
   <section class="planes" id="planes">
     <h3>Planes Disponibles</h3>
     <div class="plan-cards">
@@ -42,14 +55,35 @@
         <ul>
           <li>✅ Creación ilimitada de QR</li>
           <li>🎨 Personalización básica</li>
-          <li>⬇️ Descarga en formato PNG</li>
+          <li>⬇️ Descarga en PNG</li>
         </ul>
         <a href="dashboard/index.html" class="btn black">Usar Gratis</a>
+      </div>
+
+      <div class="plan">
+        <h4>Premium</h4>
+        <p>$4 / mes</p>
+        <ul>
+          <li>🌈 Colores avanzados</li>
+          <li>🧠 Guardar historial de QR</li>
+          <li>🚀 Generación instantánea</li>
+        </ul>
+        <a href="pricing/index.html" class="btn dark">Próximamente</a>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- 🧠 SECCIÓN DE INFORMACIÓN -->
+  <section class="info">
+    <h3>¿Por qué elegir <span style="color:#00c853">PicolasQR</span>?</h3>
+    <p>
+      Porque combina simplicidad, rendimiento y diseño.  
+      No dependemos de APIs externas ni servicios lentos: todo se genera directamente desde tu navegador.  
+      Es rápido, seguro y 100% gratuito.  
+    </p>
+  </section>
+
+  <!-- 👣 FOOTER -->
   <footer>
     <p>© 2025 PicolasQR — Todos los derechos reservados.</p>
   </footer>
