@@ -19,7 +19,7 @@
 
 ## 🧠 Vista previa
 
-![Vista previa](https://qr-generator-picolas-git-main-picolasyts-projects.vercel.app/)
+![Vista previa](https://qr-generator-picolas.vercel.app/)
 
 ---
 
