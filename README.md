@@ -19,7 +19,7 @@
 
 ## 🧠 Vista previa
 
-![Vista previa](https://github.com/picolasYT/QRGenerator-Picolas/assets/preview-example.gif)
+![Vista previa](https://qr-generator-picolas-git-main-picolasyts-projects.vercel.app/)
 
 ---
 
