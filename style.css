@@ -1,144 +1,107 @@
-* {
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
 body {
   margin: 0;
   background: linear-gradient(135deg, #1e1f29, #30336b);
   color: #fff;
+  font-family: 'Poppins', sans-serif;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
 
-/* --- CONTENEDOR PRINCIPAL --- */
 .main-container {
   display: flex;
+  width: 850px;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 16px;
-  overflow: hidden;
-  width: 850px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
 }
 
-.left-panel, .right-panel {
-  padding: 40px;
-  flex: 1;
-}
-
-/* --- PANEL IZQUIERDO --- */
 .left-panel {
-  background: rgba(255, 255, 255, 0.05);
+  flex: 1;
+  padding: 40px;
   border-right: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
 }
 
-.left-panel h1 {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-.label {
+.left-panel label {
   display: block;
-  margin-top: 20px;
+  margin-top: 15px;
   font-weight: bold;
 }
 
-#url-input {
+.left-panel input, select {
   width: 100%;
-  padding: 12px;
-  margin-top: 5px;
+  padding: 10px;
   border-radius: 8px;
   border: none;
   outline: none;
+  margin-top: 5px;
   background: rgba(255, 255, 255, 0.15);
   color: white;
-  font-size: 16px;
 }
 
-#generate-btn {
-  margin-top: 15px;
-  padding: 12px 25px;
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
   border: none;
   border-radius: 8px;
   background: #00c853;
   color: white;
   font-weight: bold;
   cursor: pointer;
-  transition: 0.3s;
 }
 
-#generate-btn:hover {
+button:hover {
   background: #009624;
 }
 
-.hint {
-  font-size: 12px;
-  opacity: 0.8;
-  margin-top: 10px;
-}
-
-/* --- PANEL DERECHO --- */
 .right-panel {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.qr-box {
-  width: 250px;
-  height: 250px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  position: relative;
-}
-
-#qr-canvas {
-  display: none;
-}
-
-#qr-placeholder {
-  color: #888;
-  position: absolute;
+  flex: 1;
+  padding: 40px;
   text-align: center;
 }
 
-#download-btn {
+.qr-container {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#qr-canvas {
+  background: white;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.frame-text {
+  background: black;
+  color: white;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 6px;
+  margin: 8px 0;
   display: none;
-  margin-top: 20px;
+}
+
+#download-btn {
+  margin-top: 15px;
+  display: none;
   background: #1976d2;
   color: white;
+  text-decoration: none;
   padding: 10px 20px;
   border-radius: 8px;
-  text-decoration: none;
-  transition: 0.3s;
 }
 
-#download-btn:hover {
-  background: #0d47a1;
-}
-
-/* --- GITHUB CORNER --- */
+/* GitHub Corner */
 .github-corner:hover .octo-arm {
   animation: octocat-wave 560ms ease-in-out;
 }
 @keyframes octocat-wave {
-  0%, 100% { transform: rotate(0); }
-  20%, 60% { transform: rotate(-25deg); }
-  40%, 80% { transform: rotate(10deg); }
-}
-
-@media (max-width: 500px) {
-  .github-corner:hover .octo-arm {
-    animation: none;
-  }
-  .github-corner .octo-arm {
-    animation: octocat-wave 560ms ease-in-out;
-  }
+  0%,100% { transform: rotate(0); }
+  20%,60% { transform: rotate(-25deg); }
+  40%,80% { transform: rotate(10deg); }
 }

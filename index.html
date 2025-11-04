@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Generador QR Picolas</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Logo GitHub -->
+  <!-- GitHub Corner -->
   <a href="https://github.com/picolasYT/QRGenerator-Picolas" class="github-corner" aria-label="View source on GitHub" target="_blank">
     <svg width="80" height="80" viewBox="0 0 250 250"
       style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;"
@@ -39,28 +39,33 @@
     </svg>
   </a>
 
-  <!-- Contenido principal -->
+  <!-- Contenedor principal -->
   <div class="main-container">
     <!-- Panel Izquierdo -->
     <div class="left-panel">
-      <h1>🌐 Generador de Códigos QR</h1>
-      <p>Ingresa una <b>URL</b> para generar tu código QR automáticamente.</p>
-
-      <label for="url-input" class="label">URL:</label>
+      <h1>ℂ𝕣𝕖𝕒𝕔𝕚𝕠́𝕟 𝕘𝕣𝕒𝕥𝕦𝕚𝕥𝕒 𝕕𝕖 𝕔𝕠́𝕕𝕚𝕘𝕠𝕤 ℚℝ</h1>
+      <label for="url-input">🔗 URL:</label>
       <input type="text" id="url-input" placeholder="https://ejemplo.com">
 
-      <button id="generate-btn">Generar QR</button>
+      <label for="frame-text">📝 Texto del marco:</label>
+      <input type="text" id="frame-text" placeholder="SCAN ME" value="SCAN ME">
 
-      <p class="hint">Tu código QR se generará al instante</p>
+      <label for="position">📍 Posición:</label>
+      <select id="position">
+        <option value="bottom">Abajo</option>
+        <option value="top">Arriba</option>
+      </select>
+
+      <button id="generate-btn">Generar QR</button>
     </div>
 
     <!-- Panel Derecho -->
     <div class="right-panel">
-      <div class="qr-box">
+      <div class="qr-container">
+        <div id="frame-top" class="frame-text"></div>
         <canvas id="qr-canvas"></canvas>
-        <p id="qr-placeholder">Tu QR aparecerá aquí</p>
+        <div id="frame-bottom" class="frame-text">SCAN ME</div>
       </div>
-
       <a id="download-btn" href="#" download="codigo_qr.png">⬇️ Descargar</a>
     </div>
   </div>
