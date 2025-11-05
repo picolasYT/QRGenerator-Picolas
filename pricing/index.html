@@ -1,51 +1,177 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Planes | PicolasQR</title>
   <link rel="stylesheet" href="../style.css" />
+  <style>
+    /* Estilos específicos para pricing + modal (mantiene el tema oscuro) */
+    .comparison-table { max-width: 900px; margin: 40px auto; border-collapse: collapse; background: rgba(255,255,255,0.03); border-radius: 12px; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,0.5); }
+    .comparison-table th, .comparison-table td { padding: 16px 22px; text-align:center; border-bottom:1px solid rgba(255,255,255,0.04); }
+    .comparison-table th { background: rgba(255,255,255,0.03); color:#00c853; font-weight:700; text-transform:uppercase; }
+    .comparison-table td:first-child { text-align:left; color:#ddd; font-weight:600; }
+    .highlight { background: linear-gradient(90deg, rgba(0,200,83,0.06), rgba(0,200,83,0.03)); }
+    .check { color:#00c853; font-weight:700; }
+    .cross { color:#ff5252; font-weight:700; }
+
+    .plans-header { text-align:center; margin:36px 0 4px; color:#fff; font-size:1.6rem; }
+    .pricing-actions { text-align:center; margin:24px 0 60px; }
+    .btn { padding:10px 18px; border-radius:8px; display:inline-block; text-decoration:none; font-weight:700; transition:all .25s ease; }
+    .btn.black { background:#000; color:#fff; }
+    .btn.black:hover { transform:translateY(-3px); box-shadow:0 8px 24px rgba(0,200,83,0.18); background:linear-gradient(135deg,#00c853,#009624); }
+    .btn.dark { background:#232432; color:#fff; border:1px solid rgba(255,255,255,0.04); }
+    .btn.dark:hover { transform:translateY(-3px); box-shadow:0 8px 24px rgba(48,51,107,0.12); }
+
+    /* Modal backdrop */
+    .modal-backdrop {
+      position: fixed; inset:0; display:none; align-items:center; justify-content:center;
+      background: rgba(0,0,0,0.6); z-index:9999; padding:20px;
+    }
+    .modal {
+      width:100%; max-width:620px; background: linear-gradient(180deg, rgba(20,22,28,0.98), rgba(12,14,20,0.98));
+      border-radius:12px; padding:22px; box-shadow:0 12px 40px rgba(0,0,0,0.6); color:#fff; position:relative;
+    }
+    .modal h3 { margin:0 0 10px; color:#00c853; }
+    .modal p { color:#ddd; margin:0 0 14px; line-height:1.45; }
+    .modal .pay-info { background: rgba(255,255,255,0.02); padding:12px; border-radius:8px; margin-bottom:12px; color:#eee; }
+    .modal label { display:block; margin-bottom:6px; font-weight:700; color:#ccc; }
+    .modal input[type="password"], .modal input[type="text"] {
+      width:100%; padding:10px 12px; border-radius:8px; border:1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.02); color:#fff;
+    }
+    .modal .row { display:flex; gap:10px; margin-top:12px; }
+    .modal .row .btn { flex:1; text-align:center; }
+    .modal .note { font-size:0.9rem; color:#bfc7c6; margin-top:10px; }
+
+    /* small screen */
+    @media (max-width:720px){ .comparison-table{ margin:20px 12px; } .modal{ padding:16px; } }
+  </style>
 </head>
 <body>
   <header class="navbar">
-    <div class="logo">
-      <img src="../assets/logo.png" alt="Picolas QR" />
-    </div>
+    <div class="logo"><img src="../assets/logo.png" alt="Picolas QR" style="height:44px"></div>
     <div class="nav-buttons">
       <a href="../index.html" class="btn dark">🏠 Inicio</a>
       <a href="../dashboard/index.html" class="btn black">⚙️ Dashboard</a>
     </div>
   </header>
 
-  <section class="planes">
-    <h3>Planes diseñados para vos</h3>
-    <div class="plan-cards">
-      <div class="plan">
-        <h4>Gratis</h4>
-        <p>$0 / mes</p>
-        <ul>
-          <li>✅ Creación ilimitada de códigos QR</li>
-          <li>🎨 Personalización básica</li>
-          <li>⬇️ Descarga en PNG</li>
-        </ul>
-        <a href="../dashboard/index.html" class="btn black">Usar ahora</a>
-      </div>
+  <main>
+    <h2 class="plans-header">Comparativa de Planes</h2>
 
-      <div class="plan">
-        <h4>Premium</h4>
-        <p>$4 / mes</p>
-        <ul>
-          <li>Colores y estilos avanzados</li>
-          <li>Guardar historial de QR</li>
-          <li>Generación más rápida</li>
-        </ul>
-        <a href="#" class="btn dark">Próximamente</a>
-      </div>
+    <table class="comparison-table" role="table" aria-label="Comparativa de planes">
+      <thead>
+        <tr>
+          <th>Características</th>
+          <th>Gratis</th>
+          <th class="highlight">Premium</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Generación diaria de QR</td><td>5 por día</td><td class="highlight">Ilimitada <span class="check">✔</span></td></tr>
+        <tr><td>Colores personalizados</td><td><span class="cross">✖</span></td><td class="highlight"><span class="check">✔</span></td></tr>
+        <tr><td>Agregar logo al QR</td><td><span class="cross">✖</span></td><td class="highlight"><span class="check">✔</span></td></tr>
+        <tr><td>Descarga SVG / PDF</td><td><span class="cross">✖</span></td><td class="highlight"><span class="check">✔</span></td></tr>
+        <tr><td>Historial guardado</td><td><span class="cross">✖</span></td><td class="highlight"><span class="check">✔</span></td></tr>
+        <tr><td>Eliminar marca de agua</td><td><span class="cross">✖</span></td><td class="highlight"><span class="check">✔</span></td></tr>
+        <tr><td>Plantillas y temas</td><td><span class="cross">✖</span></td><td class="highlight"><span class="check">✔</span></td></tr>
+        <tr><td>Soporte prioritario</td><td><span class="cross">✖</span></td><td class="highlight"><span class="check">✔</span></td></tr>
+        <tr><td>Precio mensual</td><td>Gratis</td><td class="highlight">$4 / mes</td></tr>
+      </tbody>
+    </table>
+
+    <div class="pricing-actions">
+      <a href="../dashboard/index.html" class="btn black">Usar Plan Gratis</a>
+      <!-- Este botón abre el modal -->
+      <a href="#" id="openPremiumBtn" class="btn dark">Mejorar a Premium</a>
     </div>
-  </section>
+  </main>
 
-  <footer>
+  <footer style="text-align:center; padding:24px; color:#cfd8dc;">
     <p>© 2025 PicolasQR — Todos los derechos reservados.</p>
   </footer>
+
+  <!-- MODAL -->
+  <div id="premiumModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal" role="document">
+      <h3>Próximamente — Forma de pago: Efectivo</h3>
+      <p>Estamos preparando la opción de pago online. Por ahora, el proceso será <strong>pago en efectivo</strong> (consulta presencial o por contacto). Si sos el propietario y querés probar el plan Premium ahora, ingresá la contraseña de prueba.</p>
+
+      <div class="pay-info">
+        <strong>Instrucciones (Pago en efectivo - ejemplo):</strong>
+        <ul style="margin:8px 0 0 18px; color:#e6f2e9;">
+          <li>1) Contactanos para coordinar el pago.</li>
+          <li>2) Una vez acreditado te activamos la cuenta Premium manualmente.</li>
+        </ul>
+      </div>
+
+      <label for="testPass">Contraseña de Prueba (propietario):</label>
+      <input id="testPass" type="password" placeholder="Ingresa contraseña" aria-label="Contraseña de prueba" />
+
+      <div class="row">
+        <button id="doTest" class="btn black">Probar Contraseña</button>
+        <button id="closeModal" class="btn dark">Cancelar</button>
+      </div>
+
+      <p class="note">Contraseña para prueba del propietario: <strong>Test</strong> (sensible a mayúsculas).</p>
+    </div>
+  </div>
+
+  <script>
+    // Modal logic
+    const openBtn = document.getElementById('openPremiumBtn');
+    const modalBack = document.getElementById('premiumModal');
+    const closeBtn = document.getElementById('closeModal');
+    const doTestBtn = document.getElementById('doTest');
+    const testPassInput = document.getElementById('testPass');
+
+    function openModal() {
+      modalBack.style.display = 'flex';
+      modalBack.setAttribute('aria-hidden','false');
+      testPassInput.focus();
+    }
+    function closeModal() {
+      modalBack.style.display = 'none';
+      modalBack.setAttribute('aria-hidden','true');
+      testPassInput.value = '';
+    }
+
+    openBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal();
+    });
+
+    closeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      closeModal();
+    });
+
+    // Cuando se presiona Esc, cerrar modal
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    doTestBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const val = testPassInput.value || '';
+      // contraseña EXACTA 'Test'
+      if (val === 'Test') {
+        // Guardar plan premium en localStorage
+        localStorage.setItem('plan', 'premium');
+        // Mensaje corto y redireccionar al panel premium
+        alert('✅ Contraseña correcta. Acceso Premium activado (modo prueba). Redirigiendo al panel Premium...');
+        // Redirigir a la carpeta premium (si la tenés)
+        window.location.href = '../premium/index.html';
+      } else {
+        alert('🔒 Contraseña incorrecta. Si sos el propietario, recordá que la contraseña de prueba es: Test');
+        testPassInput.focus();
+      }
+    });
+
+    // Cerrar modal si clickean fuera del .modal
+    modalBack.addEventListener('click', (e) => {
+      if (e.target === modalBack) closeModal();
+    });
+  </script>
 </body>
 </html>

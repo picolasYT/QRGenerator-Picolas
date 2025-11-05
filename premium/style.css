@@ -1,0 +1,131 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at top left, #0d1117, #16222a, #30336b);
+  color: #fff;
+  background-attachment: fixed;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  backdrop-filter: blur(6px);
+}
+
+.logo img {
+  height: 50px;
+}
+
+/* Botones */
+.btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn.black {
+  background: #000;
+  color: #fff;
+}
+.btn.black:hover {
+  background: linear-gradient(135deg, #00c853, #009624);
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 200, 83, 0.5);
+}
+
+.btn.dark {
+  background: #25283d;
+  color: white;
+}
+.btn.dark:hover {
+  background: linear-gradient(135deg, #1b1b1b, #30336b);
+  transform: scale(1.05);
+}
+
+.btn.white {
+  border: 2px solid white;
+  color: white;
+}
+.btn.white:hover {
+  background: rgba(255,255,255,0.1);
+  transform: scale(1.05);
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 120px 20px;
+}
+.hero h1 {
+  font-size: 2.6rem;
+  margin-bottom: 10px;
+}
+.hero .highlight {
+  color: #00c853;
+  text-shadow: 0 0 10px rgba(0,200,83,0.6);
+}
+.hero p {
+  max-width: 600px;
+  margin: 0 auto 25px auto;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+.hero-buttons .btn {
+  margin: 5px;
+}
+
+/* Features */
+.features {
+  text-align: center;
+  padding: 80px 20px;
+  background: rgba(255,255,255,0.04);
+}
+.features h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #00c853;
+}
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.feature-card {
+  background: rgba(0,0,0,0.25);
+  border-radius: 15px;
+  padding: 20px;
+  text-align: left;
+  transition: 0.3s;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+.feature-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0,200,83,0.3);
+}
+.feature-card h3 {
+  color: #00c853;
+  margin-bottom: 10px;
+}
+.feature-card p {
+  opacity: 0.85;
+  font-size: 0.95rem;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 25px;
+  background: rgba(255,255,255,0.05);
+  border-top: 1px solid rgba(255,255,255,0.1);
+  font-size: 0.9rem;
+  color: #ddd;
+}
