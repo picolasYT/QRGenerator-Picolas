@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Cuenta | PicolasQR Premium</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+
+  <header class="navbar glass">
+    <div class="logo">
+      <img src="../../assets/logo.png" alt="PicolasQR">
+      <span>PicolasQR <strong>Premium</strong></span>
+    </div>
+    <div class="user-info">
+      <span id="userName"></span>
+      <button id="logoutBtn" class="btn secondary">Cerrar sesión</button>
+    </div>
+  </header>
+
+  <main class="container fade-in">
+    <h1>Historial de Códigos QR</h1>
+    <p class="subtitle">Aquí podés ver todos los QR que generaste con tu cuenta Premium.</p>
+
+    <div id="qrList" class="qr-grid"></div>
+
+    <div class="empty" id="emptyState">
+      <h3>Aún no generaste ningún QR</h3>
+      <p>Creá tus primeros códigos desde el generador Premium.</p>
+      <a href="../generator/" class="btn primary">Ir al Generador</a>
+    </div>
+  </main>
+
+  <footer class="glass">
+    <p>© 2025 PicolasQR Premium — Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+</html>

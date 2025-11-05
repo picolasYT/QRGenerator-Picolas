@@ -1,10 +1,9 @@
-// Bloqueo para usuarios no premium
+// Bloqueo Premium
 if (localStorage.getItem("plan") !== "premium") {
-  alert("Acceso restringido. Solo usuarios Premium pueden usar el generador avanzado.");
+  alert("Acceso restringido. Solo usuarios Premium.");
   window.location.href = "../../pricing/index.html";
 }
 
-// Elementos principales
 const qrInput = document.getElementById("qrInput");
 const colorInput = document.getElementById("colorInput");
 const bgInput = document.getElementById("bgInput");
@@ -13,7 +12,7 @@ const qrCanvas = document.getElementById("qrCanvas");
 const generateBtn = document.getElementById("generateBtn");
 const qrLabel = document.getElementById("qrLabel");
 
-// Inicializa QRious
+// Inicializar QR
 const qr = new QRious({
   element: qrCanvas,
   size: 250,
@@ -23,7 +22,7 @@ const qr = new QRious({
   level: "H",
 });
 
-// Generar QR personalizado
+// Generar QR
 generateBtn.addEventListener("click", () => {
   const text = qrInput.value.trim() || "https://picolasqr.app";
   const color = colorInput.value;
@@ -39,8 +38,29 @@ generateBtn.addEventListener("click", () => {
   qrLabel.textContent = label;
   qrLabel.style.background = color;
 
-  saveHistory(text);
+  // Guardar QR en historial del usuario
+  const imgData = qrCanvas.toDataURL("image/png");
+  saveToHistory(text, imgData);
+
+  // Animación visual
+  qrCanvas.style.transform = "scale(1.05)";
+  setTimeout(() => (qrCanvas.style.transform = "scale(1)"), 300);
 });
+
+// Guardar historial
+function saveToHistory(link, image) {
+  const user = localStorage.getItem("premiumUser") || "default";
+  const allHistory = JSON.parse(localStorage.getItem("premiumHistory")) || {};
+  if (!allHistory[user]) allHistory[user] = [];
+
+  allHistory[user].unshift({
+    link,
+    image,
+    date: new Date().toLocaleString(),
+  });
+
+  localStorage.setItem("premiumHistory", JSON.stringify(allHistory));
+}
 
 // Descargar QR
 document.querySelectorAll("[data-format]").forEach((btn) => {
@@ -52,10 +72,3 @@ document.querySelectorAll("[data-format]").forEach((btn) => {
     link.click();
   });
 });
-
-// Guardar historial
-function saveHistory(url) {
-  const history = JSON.parse(localStorage.getItem("premiumHistory")) || [];
-  history.unshift({ url, date: new Date().toLocaleString() });
-  localStorage.setItem("premiumHistory", JSON.stringify(history));
-}
