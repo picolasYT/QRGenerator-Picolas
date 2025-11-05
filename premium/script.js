@@ -1,8 +1,5 @@
-// Protección básica: solo entra si es premium
-const plan = localStorage.getItem("plan");
-if (plan !== "premium") {
-  alert("🔒 Acceso restringido. Esta página es solo para usuarios Premium.");
+// Protección básica de acceso
+if (localStorage.getItem("plan") !== "premium") {
+  alert("Acceso restringido. Solo usuarios Premium pueden acceder a esta sección.");
   window.location.href = "../pricing/index.html";
-} else {
-  console.log("✅ Bienvenido, usuario Premium.");
 }

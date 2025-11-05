@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PicolasQR Premium Generator</title>
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Librería para generar QR -->
+  <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
+
+  <!-- Script principal -->
+  <script defer src="script.js"></script>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar glass">
+    <div class="logo">
+      <img src="../../assets/logo.png" alt="Picolas QR">
+      <span>PicolasQR <strong>Premium</strong></span>
+    </div>
+    <nav>
+      <a href="../index.html" class="btn">Panel</a>
+      <a href="../../index.html" class="btn">Inicio</a>
+    </nav>
+  </header>
+
+  <!-- MAIN SECTION -->
+  <main class="generator fade-in">
+    <div class="form-box glass">
+      <h2>Generador Avanzado</h2>
+      <p>Personalizá tu código QR con colores, estilo y formato profesional.</p>
+
+      <label>URL o texto</label>
+      <input type="text" id="qrInput" placeholder="https://ejemplo.com">
+
+      <div class="color-row">
+        <div>
+          <label>Color del código</label>
+          <input type="color" id="colorInput" value="#00c853">
+        </div>
+        <div>
+          <label>Color de fondo</label>
+          <input type="color" id="bgInput" value="#ffffff">
+        </div>
+      </div>
+
+      <label>Texto inferior</label>
+      <input type="text" id="frameText" placeholder="SCAN ME">
+
+      <button id="generateBtn" class="btn primary">Generar QR</button>
+
+      <div class="download-section">
+        <h3>Descargar como</h3>
+        <div class="download-buttons">
+          <button class="btn small" data-format="png">PNG</button>
+          <button class="btn small" data-format="jpg">JPG</button>
+          <button class="btn small" data-format="svg">SVG</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="preview-box glass">
+      <canvas id="qrCanvas"></canvas>
+      <div id="qrLabel">SCAN ME</div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="glass">
+    <p>© 2025 PicolasQR Premium — Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+</html>

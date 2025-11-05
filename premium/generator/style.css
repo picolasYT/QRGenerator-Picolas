@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
+* {
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
@@ -8,11 +13,11 @@ body {
   overflow-x: hidden;
 }
 
-/* Glass Effect */
+/* Glass effect */
 .glass {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
@@ -30,11 +35,11 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #fff;
   font-size: 1.2rem;
+  color: #fff;
 }
 .logo img {
-  height: 40px;
+  height: 38px;
 }
 .logo strong {
   color: #00c853;
@@ -46,13 +51,12 @@ nav .btn {
 /* Buttons */
 .btn {
   border: none;
-  padding: 10px 20px;
+  padding: 10px 18px;
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.1);
   color: #e2e8f0;
+  cursor: pointer;
   font-weight: 600;
-  text-decoration: none;
-  transition: 0.3s;
 }
 .btn:hover {
   background: #00c853;
@@ -66,78 +70,99 @@ nav .btn {
   transform: scale(1.05);
   box-shadow: 0 0 25px rgba(0, 200, 83, 0.5);
 }
-.btn.secondary {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+.btn.small {
+  padding: 8px 14px;
+  font-size: 0.9rem;
 }
 
-/* Hero */
-.hero {
-  text-align: center;
-  padding: 120px 20px 80px;
-}
-.hero h1 {
-  font-size: 2.8rem;
-  font-weight: 700;
-  margin-bottom: 15px;
-}
-.highlight {
-  color: #00c853;
-  text-shadow: 0 0 15px rgba(0, 200, 83, 0.5);
-}
-.hero p {
-  max-width: 700px;
-  margin: 0 auto 30px;
-  opacity: 0.85;
-  line-height: 1.6;
-}
-.hero-buttons {
+/* Layout */
+.generator {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  align-items: center;
+  gap: 60px;
+  padding: 80px 40px;
+  flex-wrap: wrap;
 }
 
-/* Features */
-.features {
-  padding: 80px 40px;
-  text-align: center;
+.form-box, .preview-box {
+  border-radius: 18px;
+  padding: 35px;
 }
-.features h2 {
+
+.form-box {
+  width: 420px;
+}
+
+.preview-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 300px;
+  padding: 30px 50px;
+  position: relative;
+}
+
+h2 {
   color: #00c853;
-  font-size: 2rem;
-  margin-bottom: 50px;
+  margin-top: 0;
 }
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
-  max-width: 1100px;
-  margin: 0 auto;
+p {
+  opacity: 0.8;
 }
-.feature-card {
-  border-radius: 16px;
-  padding: 25px;
-  text-align: left;
-  transition: 0.3s;
+
+label {
+  display: block;
+  font-weight: 500;
+  margin: 10px 0 5px;
 }
-.feature-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 25px rgba(0, 200, 83, 0.2);
-}
-.feature-card h3 {
-  color: #00c853;
-  margin-bottom: 10px;
-}
-.feature-card p {
-  opacity: 0.85;
+input[type="text"], input[type="color"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
   font-size: 0.95rem;
-  line-height: 1.6;
+}
+
+.color-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+/* QR canvas */
+#qrCanvas {
+  background: #fff;
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 0 20px rgba(0, 200, 83, 0.2);
+}
+#qrLabel {
+  margin-top: 18px;
+  background: #00c853;
+  color: #fff;
+  padding: 6px 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* Download section */
+.download-section {
+  margin-top: 25px;
+}
+.download-buttons {
+  display: flex;
+  gap: 8px;
 }
 
 /* Footer */
 footer {
   text-align: center;
-  padding: 40px;
+  padding: 30px;
   color: #aaa;
   font-size: 0.9rem;
 }
