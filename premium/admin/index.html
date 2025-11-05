@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Administración | PicolasQR</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header class="navbar glass">
+    <h1>PicolasQR <span>Admin</span></h1>
+  </header>
+
+  <main class="container">
+    <!-- LOGIN -->
+    <section id="loginSection" class="glass">
+      <h2>Acceso Administrador</h2>
+      <input type="password" id="adminPass" placeholder="Clave maestra">
+      <button id="loginBtn" class="btn primary">Entrar</button>
+      <p id="loginError" class="error"></p>
+    </section>
+
+    <!-- PANEL -->
+    <section id="adminPanel" class="hidden glass">
+      <h2>Gestión de Contraseñas Premium</h2>
+      <div class="input-group">
+        <input type="text" id="newPass" placeholder="Nueva contraseña...">
+        <button id="addPassBtn" class="btn primary">Agregar</button>
+      </div>
+
+      <h3>Contraseñas registradas:</h3>
+      <ul id="passList" class="list"></ul>
+
+      <button id="saveBtn" class="btn secondary">Guardar Cambios</button>
+      <p id="statusMsg" class="status"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 PicolasQR — Panel de administración interno.</p>
+  </footer>
+</body>
+</html>

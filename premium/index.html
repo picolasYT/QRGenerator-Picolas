@@ -29,7 +29,7 @@
     </p>
 
     <div class="hero-buttons">
-      <a href="generator/" class="btn primary">Entrar al Generador</a>
+      <a href="#" id="openModal" class="btn primary">Entrar al Generador</a>
       <a href="../pricing/index.html" class="btn secondary">Ver Planes</a>
     </div>
   </section>
@@ -64,6 +64,20 @@
       </div>
     </div>
   </section>
+
+  <!-- MODAL DE ACCESO PREMIUM -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content glass">
+      <h2>Acceso Premium</h2>
+      <p>Ingrese su contraseña para acceder al Generador Premium.</p>
+      <input type="password" id="accessPass" placeholder="Contraseña Premium">
+      <div class="modal-actions">
+        <button id="verifyBtn" class="btn primary">Verificar</button>
+        <button id="closeModal" class="btn secondary">Cancelar</button>
+      </div>
+      <p id="errorMsg" class="error"></p>
+    </div>
+  </div>
 
   <!-- FOOTER -->
   <footer class="glass">

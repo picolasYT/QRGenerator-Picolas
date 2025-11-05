@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #0a0f1c, #1b2735);
+  color: #e2e8f0;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border-radius: 16px;
+}
+
+.navbar {
+  padding: 20px;
+  color: white;
+}
+.navbar span {
+  color: #00c853;
+}
+
+.container {
+  max-width: 700px;
+  margin: 60px auto;
+  padding: 20px;
+}
+
+input {
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  width: 80%;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 1rem;
+}
+input::placeholder {
+  color: #bbb;
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  margin-top: 10px;
+}
+.btn.primary {
+  background: linear-gradient(135deg, #00c853, #009624);
+  color: white;
+}
+.btn.secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.hidden {
+  display: none;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+.list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.07);
+  padding: 10px 15px;
+  margin: 6px 0;
+  border-radius: 8px;
+}
+.list button {
+  background: #ff5252;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.list button:hover {
+  background: #ff1744;
+}
+
+.error {
+  color: #ff6b6b;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+.status {
+  color: #00c853;
+  margin-top: 20px;
+}
