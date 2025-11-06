@@ -16,7 +16,7 @@ const qrLabel = document.getElementById("qrLabel");
 const qr = new QRious({
   element: qrCanvas,
   size: 250,
-  value: "https://picolasqr.app",
+  value: "https://qr-generator-picolas.vercel.app/",
   foreground: "#00c853",
   background: "#ffffff",
   level: "H",
@@ -24,7 +24,7 @@ const qr = new QRious({
 
 // Generar QR
 generateBtn.addEventListener("click", () => {
-  const text = qrInput.value.trim() || "https://picolasqr.app";
+  const text = qrInput.value.trim() || "https://qr-generator-picolas.vercel.app/";
   const color = colorInput.value;
   const bg = bgInput.value;
   const label = frameText.value || "SCAN ME";
