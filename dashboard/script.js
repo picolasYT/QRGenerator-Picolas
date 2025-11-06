@@ -1,64 +1,55 @@
-// 🎨 PicolasQR Free Generator con marca de agua
-document.addEventListener("DOMContentLoaded", () => {
-  const input = document.getElementById("qrInput");
-  const generateBtn = document.getElementById("generateBtn");
-  const canvas = document.getElementById("qrCanvas");
-  const qrLabel = document.getElementById("qrLabel");
-  const downloadButtons = document.querySelectorAll(".download-buttons .btn");
+const urlInput = document.getElementById("url-input");
+const textInput = document.getElementById("frame-text");
+const positionSelect = document.getElementById("position");
+const generateBtn = document.getElementById("generate-btn");
+const canvas = document.getElementById("qr-canvas");
+const frameTop = document.getElementById("frame-top");
+const frameBottom = document.getElementById("frame-bottom");
+const downloadBtn = document.getElementById("download-btn");
+
+const qr = new QRious({
+  element: canvas,
+  size: 220,
+  background: "white",
+  foreground: "black",
+  value: ""
+});
+
+generateBtn.addEventListener("click", () => {
+  const url = urlInput.value.trim();
+  const frameText = textInput.value.trim() || "SCAN ME";
+  const position = positionSelect.value;
+
+  if (!url) {
+    alert("Por favor ingresa una URL válida.");
+    return;
+  }
 
   // Generar QR
-  generateBtn.addEventListener("click", () => {
-    const url = input.value.trim();
-    if (!url) {
-      alert("Por favor, ingresá una URL o texto para generar el código QR.");
-      return;
-    }
+  qr.value = url;
 
-    const qr = new QRious({
-      element: canvas,
-      value: url,
-      size: 250,
-      background: "#ffffff",
-      foreground: "#000000",
-    });
+  // Mostrar texto según la posición elegida
+  frameTop.style.display = position === "top" ? "block" : "none";
+  frameBottom.style.display = position === "bottom" ? "block" : "none";
 
-    // 🧩 Marca de agua
+  if (position === "top") frameTop.textContent = frameText;
+  else frameBottom.textContent = frameText;
+
+  // ✨ Dibujar marca de agua de texto
+  setTimeout(() => {
     const ctx = canvas.getContext("2d");
-    const watermark = new Image();
-    watermark.src = "/assets/logo-removebg-preview.png"; // tu logo transparente
+    const marca = "PicolasQR";
 
-    watermark.onload = () => {
-      const wmWidth = qr.size * 0.5; // 50% del ancho del QR
-      const wmHeight = (wmWidth * watermark.height) / watermark.width; // mantener proporción
-      const x = (qr.size - wmWidth) / 2; // centrado horizontal
-      const y = qr.size - wmHeight - 10; // abajo con margen
-      ctx.globalAlpha = 0.25; // transparencia suave
-      ctx.drawImage(watermark, x, y, wmWidth, wmHeight);
-      ctx.globalAlpha = 1.0;
-    };
-  });
+    ctx.globalAlpha = 0.25; // transparencia suave
+    ctx.font = "bold 16px Poppins, sans-serif";
+    ctx.fillStyle = "#00c853";
+    ctx.textAlign = "center";
+    ctx.fillText(marca, qr.size / 2, qr.size - 10);
+    ctx.globalAlpha = 1.0;
 
-  // 📥 Descargar QR en varios formatos
-  downloadButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const format = btn.dataset.format;
-      const link = document.createElement("a");
-      link.download = `picolasqr.${format}`;
-
-      if (format === "svg") {
-        // Exportar como SVG
-        const svg = `
-          <svg xmlns="http://www.w3.org/2000/svg" width="${canvas.width}" height="${canvas.height}">
-            <image href="${canvas.toDataURL()}" width="100%" height="100%"/>
-          </svg>`;
-        const blob = new Blob([svg], { type: "image/svg+xml" });
-        link.href = URL.createObjectURL(blob);
-      } else {
-        // PNG o JPG
-        link.href = canvas.toDataURL(`image/${format}`);
-      }
-
-      link.click();
-    });
-  });
+    // Actualizar enlace de descarga
+    const dataURL = canvas.toDataURL("image/png");
+    downloadBtn.href = dataURL;
+    downloadBtn.style.display = "inline-block";
+  }, 150);
 });
