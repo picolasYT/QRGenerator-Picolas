@@ -1,6 +1,6 @@
 # 🌐 Generador de Códigos QR — Picolas
 
-![Banner](https://files.catbox.moe/fkkmjt.png)
+![Banner](https://files.catbox.moe/pu4lpk.png)
 
 > Un generador de códigos QR **moderno, rápido y responsive**, creado con HTML, CSS y JavaScript puro.  
 > Diseñado por **Picolas** con estilo profesional e interfaz limpia 💎  
