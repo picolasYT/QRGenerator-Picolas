@@ -1,88 +1,62 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PicolasQR Premium</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
   <script defer src="script.js"></script>
 </head>
 <body>
-
-  <!-- NAVBAR -->
   <header class="navbar glass">
     <div class="logo">
-      <img src="../assets/logo.png" alt="Picolas QR">
+      <img src="../assets/logo.png" alt="PicolasQR" />
       <span>PicolasQR <strong>Premium</strong></span>
     </div>
-    <nav>
-      <a href="../index.html" class="btn">Inicio</a>
-      <a href="../pricing/index.html" class="btn">Planes</a>
-    </nav>
   </header>
 
-  <!-- HERO -->
-  <section class="hero fade-in">
-    <h1>Bienvenido a <span class="highlight">PicolasQR Premium</span></h1>
-    <p>
-      Accedé al generador avanzado de códigos QR, con personalización total, sin límites y todas las funciones exclusivas.
-    </p>
+  <main class="content fade-in">
+    <h1>Acceso Premium</h1>
+    <p>Ingresá tu contraseña para acceder al generador exclusivo.</p>
 
-    <div class="hero-buttons">
-      <a href="#" id="openModal" class="btn primary">Entrar al Generador</a>
-      <a href="../pricing/index.html" class="btn secondary">Ver Planes</a>
+    <div class="login-box glass">
+      <input type="password" id="passwordInput" placeholder="Contraseña Premium" />
+      <button id="loginBtn" class="btn primary">Entrar</button>
     </div>
-  </section>
+  </main>
 
-  <!-- FEATURES -->
-  <section class="features fade-in">
-    <h2>Funciones Premium</h2>
-    <div class="features-grid">
-      <div class="feature-card glass">
-        <h3>Colores Personalizados</h3>
-        <p>Modificá el color del código, fondo y texto para reflejar tu identidad visual.</p>
-      </div>
-      <div class="feature-card glass">
-        <h3>Historial Guardado</h3>
-        <p>Visualizá todos los QR generados con fecha y acceso directo al enlace.</p>
-      </div>
-      <div class="feature-card glass">
-        <h3>Descargas Avanzadas</h3>
-        <p>Exportá tus QR en PNG, JPG o SVG con un clic.</p>
-      </div>
-      <div class="feature-card glass">
-        <h3>Sin Límites</h3>
-        <p>Creá todos los QR que necesites sin esperas ni bloqueos diarios.</p>
-      </div>
-      <div class="feature-card glass">
-        <h3>Plantillas Exclusivas</h3>
-        <p>Elegí entre múltiples diseños premium y estilos visuales modernos.</p>
-      </div>
-      <div class="feature-card glass">
-        <h3>Soporte Prioritario</h3>
-        <p>Recibí atención personalizada y acceso anticipado a nuevas funciones.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- MODAL DE ACCESO PREMIUM -->
-  <div id="loginModal" class="modal">
-    <div class="modal-content glass">
-      <h2>Acceso Premium</h2>
-      <p>Ingrese su contraseña para acceder al Generador Premium.</p>
-      <input type="password" id="accessPass" placeholder="Contraseña Premium">
-      <div class="modal-actions">
-        <button id="verifyBtn" class="btn primary">Verificar</button>
-        <button id="closeModal" class="btn secondary">Cancelar</button>
-      </div>
-      <p id="errorMsg" class="error"></p>
-    </div>
+  <!-- Loader -->
+  <div id="picolasLoader" class="loader-container">
+    <div class="loader"></div>
+    <h2>Cargando <span>PicolasQR Premium</span>...</h2>
+    <p>Por favor, esperá un momento</p>
   </div>
 
-  <!-- FOOTER -->
   <footer class="glass">
-    <p>© 2025 PicolasQR Premium — Todos los derechos reservados.</p>
+    <p>© 2025 PicolasQR — Todos los derechos reservados.</p>
   </footer>
 
+  <script>
+    const loader = document.getElementById("picolasLoader");
+    loader.style.display = "none";
+
+    const loginBtn = document.getElementById("loginBtn");
+    loginBtn.addEventListener("click", () => {
+      const pass = document.getElementById("passwordInput").value.trim();
+      const users = ["Test", "Luis2025"]; // contraseñas válidas
+      
+      if (users.includes(pass)) {
+        loader.style.display = "flex";
+        setTimeout(() => {
+          loader.classList.add("fadeOut");
+          setTimeout(() => loader.remove(), 700);
+          localStorage.setItem("premiumUser", pass);
+          window.location.href = "/premium/generator/";
+        }, 2000);
+      } else {
+        alert("Contraseña incorrecta.");
+      }
+    });
+  </script>
 </body>
 </html>
